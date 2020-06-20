@@ -7,4 +7,12 @@
 		<!-- 第三方插件 核心拦截器PageHelper所在的类路径 -->
 		<plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
 	</plugins>
+
+	<mappers>
+		<package name="com.neu.edu.foodshop.mapper"/>
+	</mappers>
+
+
+
+
 </configuration>
