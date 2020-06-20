@@ -19,4 +19,9 @@ public class FoodController {
     public List<Food> getAll(){
         return foodService.getAll();
     }
+    
+    @RequestMapping("/hello")
+    public String hello(){
+        return "hello";
+    }
 }
