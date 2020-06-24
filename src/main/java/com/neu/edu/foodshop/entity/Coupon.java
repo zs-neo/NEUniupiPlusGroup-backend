@@ -5,39 +5,19 @@ package com.neu.edu.foodshop.entity;
  * info：优惠卷信息
  */
 public class Coupon {
-    private  int tcouponid;
+    private  int couponid;
     private  String couponname;
     private  String coupondesc;
     private  String couponbegtime;
     private  String couponendtime;
-    private  String couponstatus;
+    private  int couponstatus;
     private  int couponamount;
     private  int couponscore;//积分
     private  int coupongetnum;//已领取数量
     private  int couponusednum;//已使用数
 
+    private  int limituser;//限定普通用户或者vip
     public Coupon() {
-    }
-
-    public Coupon(int tcouponid, String couponname, String coupondesc, String couponbegtime, String couponendtime, String couponstatus, int couponamount, int couponscore, int coupongetnum, int couponusednum) {
-        this.tcouponid = tcouponid;
-        this.couponname = couponname;
-        this.coupondesc = coupondesc;
-        this.couponbegtime = couponbegtime;
-        this.couponendtime = couponendtime;
-        this.couponstatus = couponstatus;
-        this.couponamount = couponamount;
-        this.couponscore = couponscore;
-        this.coupongetnum = coupongetnum;
-        this.couponusednum = couponusednum;
-    }
-
-    public int getTcouponid() {
-        return tcouponid;
-    }
-
-    public void setTcouponid(int tcouponid) {
-        this.tcouponid = tcouponid;
     }
 
     public String getCouponname() {
@@ -72,11 +52,11 @@ public class Coupon {
         this.couponendtime = couponendtime;
     }
 
-    public String getCouponstatus() {
+    public int getCouponstatus() {
         return couponstatus;
     }
 
-    public void setCouponstatus(String couponstatus) {
+    public void setCouponstatus(int couponstatus) {
         this.couponstatus = couponstatus;
     }
 
@@ -111,19 +91,37 @@ public class Coupon {
     public void setCouponusednum(int couponusednum) {
         this.couponusednum = couponusednum;
     }
+
+    public int getLimituser() {
+        return limituser;
+    }
+
+    public void setLimituser(int limituser) {
+        this.limituser = limituser;
+    }
+
+    public int getCouponid() {
+        return couponid;
+    }
+
+    public void setCouponid(int couponid) {
+        this.couponid = couponid;
+    }
+
     @Override
     public String toString() {
         return "Coupon{" +
-                "tcouponid=" + tcouponid +
+                "couponid=" + couponid +
                 ", couponname='" + couponname + '\'' +
                 ", coupondesc='" + coupondesc + '\'' +
                 ", couponbegtime='" + couponbegtime + '\'' +
                 ", couponendtime='" + couponendtime + '\'' +
-                ", couponstatus='" + couponstatus + '\'' +
+                ", couponstatus=" + couponstatus +
                 ", couponamount=" + couponamount +
                 ", couponscore=" + couponscore +
                 ", coupongetnum=" + coupongetnum +
                 ", couponusednum=" + couponusednum +
+                ", limituser=" + limituser +
                 '}';
     }
 }

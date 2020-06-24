@@ -28,4 +28,60 @@ public class CouponServiceImpl implements CouponService {
         return new PageInfo<Coupon>(couponMapper.getAll());
 
     }
+
+    @Override
+    public PageInfo<Coupon> fuzzySearch(int pageNum, int pageSize,Coupon coupon) {
+        PageHelper.startPage(pageNum, pageSize);
+
+        return new PageInfo<Coupon>(couponMapper.fuzzySearch(coupon));
+    }
+
+    @Override
+    public boolean insertCoupon(Coupon coupon) {
+        int count=couponMapper.insertCoupon(coupon);
+        if(count>0){
+            return  true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean updateCoupon(Coupon coupon) {
+
+        int count=couponMapper.updateCoupon(coupon);
+        if(count>0){
+            return  true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean deleteCoupon(int couponid) {
+        int count=couponMapper.deleteCoupon(couponid);
+        if(count>0) {
+            return true;
+        }
+        return false;
+
+    }
+
+    @Override
+    public boolean updateStatus(Coupon coupon) {
+        int count=couponMapper.updateStatus(coupon);
+        if(count>0){
+            return  true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean deleteBatch(int[] couponids) {
+        int count=couponMapper.deleteBatch(couponids);
+        if(count>0){
+            return  true;
+        }
+        return false;
+    }
+
+
 }
