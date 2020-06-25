@@ -5,10 +5,40 @@ public class Food {
     private int tid;
     private String fname;
     private String fpic;
+    private double fcost;
     private double fprice;
+    private double fdiscount;
     private int forder;
     private String fdesc;
     private String fregtime;
+    private int fused;
+
+    public double getFcost() {
+        return fcost;
+    }
+
+    public void setFcost(double fcost) {
+        this.fcost = fcost;
+    }
+
+    public double getFdiscount() {
+        return fdiscount;
+    }
+
+    public void setFdiscount(double fdiscount) {
+        this.fdiscount = fdiscount;
+    }
+
+    public int getFused() {
+        return fused;
+    }
+
+    public void setFused(int fused) {
+        this.fused = fused;
+    }
+
+    public Food() {
+    }
 
     public int getFid() {
         return fid;
@@ -74,17 +104,6 @@ public class Food {
         this.fregtime = fregtime;
     }
 
-    public Food(int fid, int tid, String fname, String fpic, double fprice, int forder, String fdesc, String fregtime) {
-        this.fid = fid;
-        this.tid = tid;
-        this.fname = fname;
-        this.fpic = fpic;
-        this.fprice = fprice;
-        this.forder = forder;
-        this.fdesc = fdesc;
-        this.fregtime = fregtime;
-    }
-
     @Override
     public String toString() {
         return "Food{" +
@@ -92,10 +111,27 @@ public class Food {
                 ", tid=" + tid +
                 ", fname='" + fname + '\'' +
                 ", fpic='" + fpic + '\'' +
+                ", fcost=" + fcost +
                 ", fprice=" + fprice +
+                ", fdiscount=" + fdiscount +
                 ", forder=" + forder +
                 ", fdesc='" + fdesc + '\'' +
                 ", fregtime='" + fregtime + '\'' +
+                ", fused=" + fused +
                 '}';
+    }
+
+    public Food(int fid, int tid, String fname, String fpic, double fcost, double fprice, double fdiscount, int forder, String fdesc, String fregtime, int fused) {
+        this.fid = fid;
+        this.tid = tid;
+        this.fname = fname;
+        this.fpic = fpic;
+        this.fcost = fcost;
+        this.fprice = fprice;
+        this.fdiscount = fdiscount;
+        this.forder = forder;
+        this.fdesc = fdesc;
+        this.fregtime = fregtime;
+        this.fused = fused;
     }
 }
