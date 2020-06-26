@@ -10,10 +10,10 @@ import java.util.List;
 @Mapper
 public interface FoodTypeMapper {
 
-    @Update("update first_type set ftname=#{ftname},ftpic=#{ftpic},ftorder=#{ftorder},ftdesc=#{ftdesc},ftused=#{ftused} where ftid=#{ftid}")
+    @Update("update first_type set ftname=#{ftname},ftused=#{ftused} where ftid=#{ftid}")
     int updateFtype(FirstType firstType);
 
-    @Update("update second_type set stname=#{stname},storder=#{storder},ftid=#{ftid},stused=#{stused} where stid=#{stid}")
+    @Update("update second_type set stname=#{stname},ftid=#{ftid},stused=#{stused},isedited=#{isedited} where stid=#{stid}")
     int updateStype(SecondType secondType);
 
     @Select("select * from second_type where ftid=#{ftid}")
@@ -25,14 +25,24 @@ public interface FoodTypeMapper {
     @Select("select * from first_type")
     @Results({
             @Result(id=true,column = "ftid",property = "ftid"),
-            @Result(column="ftpic",property="ftpic"),
-            @Result(column="ftorder",property="ftorder"),
-            @Result(column="ftdesc",property="ftdesc"),
             @Result(column = "ftid",property = "secondTypeList", javaType = List.class,
                     many = @Many(select = "com.neu.edu.foodshop.mapper.FoodTypeMapper.getSecondTypeByFtid"))
 
     })
     List<FirstType> getFirstTypeWithSecondType();
+    //模糊查找
+    @Select("select * from second_type where instr(stname,#{stname})>0")
+    List<SecondType> getSecondTypeByName(String stname);
 
+    @Delete("delete from second_type where stid=#{stid}")
+    int deleteSecondType(int stid);
 
+    @Delete("delete from first_type where ftid=#{ftid}")
+    int deleteFirstType(int ftid);
+
+    @Insert("insert into first_type values(of_first_fid_seq.nextval,#{ftname},#{ftname},1)")
+    int insertFtype(FirstType firstType);
+
+    @Insert("insert into second_type values(of_second_type_stid_seq.nextval,#{stname},#{ftid},1,0)")
+    int insertStype(SecondType secondType);
 }

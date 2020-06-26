@@ -3,17 +3,9 @@ package com.neu.edu.foodshop.entity;
 public class SecondType {
     private int stid;
     private String stname;
-    private int storder;
     private int ftid;
     private int stused;
-
-    public int getStused() {
-        return stused;
-    }
-
-    public void setStused(int stused) {
-        this.stused = stused;
-    }
+    private int isedited;
 
     public int getStid() {
         return stid;
@@ -31,14 +23,6 @@ public class SecondType {
         this.stname = stname;
     }
 
-    public int getStorder() {
-        return storder;
-    }
-
-    public void setStorder(int storder) {
-        this.storder = storder;
-    }
-
     public int getFtid() {
         return ftid;
     }
@@ -47,15 +31,31 @@ public class SecondType {
         this.ftid = ftid;
     }
 
-    public SecondType(int stid, String stname, int storder, int ftid, int stused) {
-        this.stid = stid;
-        this.stname = stname;
-        this.storder = storder;
-        this.ftid = ftid;
+    public int getStused() {
+        return stused;
+    }
+
+    public void setStused(int stused) {
         this.stused = stused;
     }
 
-    public SecondType() {
+    public int getIsedited() {
+        return isedited;
+    }
+
+    public void setIsedited(int isedited) {
+        this.isedited = isedited;
+    }
+
+    public SecondType(int stid, String stname, int ftid, int stused, int isedited) {
+        this.stid = stid;
+        this.stname = stname;
+        this.ftid = ftid;
+        this.stused = stused;
+        this.isedited = isedited;
+    }
+    public SecondType(){
+
     }
 
     @Override
@@ -63,9 +63,10 @@ public class SecondType {
         return "SecondType{" +
                 "stid=" + stid +
                 ", stname='" + stname + '\'' +
-                ", storder=" + storder +
                 ", ftid=" + ftid +
                 ", stused=" + stused +
+                ", isedited=" + isedited +
                 '}';
     }
 }
+

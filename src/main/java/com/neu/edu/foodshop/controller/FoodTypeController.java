@@ -41,5 +41,30 @@ public class FoodTypeController {
     public List<FirstType> getFirstTypeWithSecondType(){
         return foodTypeService.getFirstTypeWithSecondType();
     }
+    //模糊查询
+    @RequestMapping("/getSecondTypeByName")
+    public List<SecondType> getSecondTypeByName(@RequestParam("stname") String stname){
+        return foodTypeService.getSecondTypeByName(stname);
+    }
+    @RequestMapping("/delelteStype")
+    public int deleteSecondType(@RequestParam("stid") int stid){
+        return foodTypeService.deleteSecondType(stid);
+    }
+
+    @RequestMapping("/insertFtype")
+    public int insertFtype(@RequestBody FirstType firstType){
+        return foodTypeService.insertFtype(firstType);
+    }
+
+    @RequestMapping("/insertStype")
+    public int insertStype(@RequestBody SecondType secondType){
+        return foodTypeService.insertStype(secondType);
+    }
+
+    @RequestMapping("/delelteFtype")
+    public int deleteFirstType(@RequestParam("ftid") int ftid){
+        return foodTypeService.deleteFirstType(ftid);
+    }
+
 
 }

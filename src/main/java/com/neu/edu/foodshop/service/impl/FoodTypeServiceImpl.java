@@ -38,4 +38,29 @@ public class FoodTypeServiceImpl implements FoodTypeService {
         return foodTypeMapper.getSecondTypeByFtid(ftid);
     }
 
+    @Override
+    public List<SecondType> getSecondTypeByName(String stname) {
+        return foodTypeMapper.getSecondTypeByName(stname);
+    }
+
+    @Override
+    public int deleteSecondType(int stid) {
+        return foodTypeMapper.deleteSecondType(stid);
+    }
+
+    @Override
+    public int deleteFirstType(int ftid) {
+        return foodTypeMapper.deleteFirstType(ftid);
+    }
+
+    @Override
+    public int insertFtype(FirstType firstType) {
+        return foodTypeMapper.insertFtype(firstType);
+    }
+
+    @Override
+    public int insertStype(SecondType secondType) {
+        return foodTypeMapper.insertStype(secondType);
+    }
+
 }

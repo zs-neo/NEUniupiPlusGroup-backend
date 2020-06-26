@@ -11,4 +11,10 @@ public interface FoodTypeService {
     List<FirstType> getFirstTypeWithSecondType();
     List<FirstType> getFirstType();
     List<SecondType> getSecondTypeByFtid(int ftid);
+    List<SecondType> getSecondTypeByName(String stname);
+    int deleteSecondType(int stid);
+    int deleteFirstType(int ftid);
+    int insertFtype(FirstType firstType);
+    int insertStype(SecondType secondType);
+
 }
